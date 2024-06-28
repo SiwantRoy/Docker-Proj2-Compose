@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    networks:
+      - simple-chat-app-network
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_BACKEND_URL=http://backend:3000
+    networks:
+      - simple-chat-app-network
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - simple-chat-app-network
+
+networks:
+  simple-chat-app-network:
+    driver: bridge
