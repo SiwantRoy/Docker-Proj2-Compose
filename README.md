@@ -58,8 +58,8 @@ simple-chat-app/
    ```
 
 3. **Access the Application:**
-   - Frontend: `http://localhost:3000`
-   - Backend: `http://localhost:5000`
+   - Frontend: `http://localhost:3001`
+   - Backend: `http://localhost:3000`
 
 ### Usage
 
